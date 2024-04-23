@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js" defer></script>
+    <script src="Java_script/Script1.js" defer></script>
+    <script src="Java_script/Script2.js" defer></script>
+    <title>Sunflower all</title>
+</head>
+<body>
+    <div class="header-sunflowerall">
+        <div class="wrapper">
+            <div class="row">
+                <div class="w-2">
+                    <div id="logo">
+                        <a href=""><img src="IMAGES/logo.png" alt="Logo"></a>
+                    </div>
+                </div>
+                <div class="w-2 align-right">
+                    <div id="search">
+                        <div id="search-in" class="flex">
+                            <input type="search" placeholder="Search">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+
+                    <div id="menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="">Company Profile</a></li>
+                            <li><a href="">Products</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">R & D</a></li>
+                            <li><a href="index4.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="burger-btn">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div id="slider-sunflowerall">
+            <div class="background-sunflowerall">
+                <img src="IMAGES/sunflower_bg2.png" alt="Sunflowers">
+            </div>
+        </div>
+        <div class="background-sunflowerall">
+            <div class="wrapper">
+                <div class="detail_sunflower">
+                    <h2 class="message1_sunflowerall">Agridera Fresh Market Sunflowers Varieties</h2>
+
+                    <p class="message2">×××××</p>
+
+                    <p class="message3_sunflowerall">
+                        Agridera aims to be one of the world's leading companies in the breeding, production, and marketing of sunflower seeds. <b>We invest intensively in research and development to provide solutions to growers and consumers in numerous countries around the world.</b>
+                        In particular, we breed improved disease-resistant varieties adapted to different climates and soil conditions globally.
+                    </p>
+
+                    <p class="message3_sunflowerall">Currently, emphasis is placed on developing sunflower varieties with high resistance to diseases such as downy mildew, powdery mildew, and rust, as well as tolerance to various environmental stresses including drought and heat.</p>
+
+                    <p class="message3_sunflowerall">In terms of agronomic traits, breeding efforts focus on enhancing traits such as high yield potential, oil content, seed size, uniformity, and adaptability to different cropping systems.</p>
+
+                    <div class="detail_sunflower2">
+                        <div class="vertical-bord"></div>
+                        <p class="message3_sunflowerall">Agridera's sunflower breeding programs target various market segments including oilseed sunflowers, confectionery sunflowers, and high-oleic sunflowers.</p>
+                    </div>
+
+                    <div class="background-sunflowerall-white">
+                        <div class="detail-background-sunflowerall-white">
+                            <h4>Oilseed Sunflower Varieties</h4>
+                            <hr />
+                            <p class="message3_sunflowerall">These varieties are primarily developed for oil production. They are selected for high oil content, good oil quality, and agronomic traits suitable for different growing regions.</p>
+                        </div>
+                        <div class="detail-background-sunflowerall-white">
+                            <h4>Confectionery Sunflower Varieties</h4>
+                            <hr />
+                            <p class="message3_sunflowerall">These varieties are cultivated for their large, non-oil seeds, which are commonly used for human consumption. Breeding focuses on seed size, uniformity, and kernel characteristics.</p>
+                        </div>
+                        <div class="detail-background-sunflowerall-white">
+                            <h4>High-Oleic Sunflower Varieties</h4>
+                            <hr />
+                            <p class="message3_sunflowerall">These varieties are developed for their high oleic acid content, which enhances stability and shelf life. They are preferred for use in food processing and frying applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail_sunflower2">
+                        <div class="vertical-bord"></div>
+                        <p class="message3_sunflowerall"><b>Agridera collaborates with international and local distributors to make our sunflower varieties available worldwide.</b></p>
+                    </div>
+
+                    <div class="inform-sunflower">
+    <div class="wrapper-sunflower" id="sunflowerall-app">
+        <div class="Sunflower w-3" v-for="item in products">
+            <a :href="'index3.html#'+item.id">
+                <img v-bind:src="item.image" alt="item.title"></a>
+            <p><a :href="'index3.html#'+item.id"><b>{{item.title}}</b></a><br> {{item.short_text}}</p>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_section">
+            <div id="Сonnexions">
+                <ul>
+                    <li><a href="">PROFILE</a></li>
+                    <li><a href="">MANAGEMENT</a></li>
+                    <li><a href="">PRODUCTS</a></li>
+                    <li><a href="">R&D</a></li>
+                    <li><a href="">LINKS</a></li>
+                    <li><a href="">SITEMAP</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="social_media">
+                <a href=""><img src="IMAGES/Ico_in.png" alt="IN"></a>
+                <a href=""><img src="IMAGES/Ico_inst.png" alt="INSTAGRAM"></a>
+                <a href=""><img src="IMAGES/Ico_tube.png" alt="YOUTUBE"></a>
+                <a href=""><img src="IMAGES/Ico_tw.png" alt="TWITTER"></a>
+                <a href=""><img src="IMAGES/Ico_fb.png" alt="FACEBOOK"></a>
+            </div>
+        </div>
+        <p class="copyright">AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js" defer></script>
+    <script src="Java_script/Script1.js" defer></script>
+    <script src="Java_script/Script2.js" defer></script>
+</head>
+<body>
+    <div class="header-contactus">
+        <div class="wrapper">
+            <div class="row">
+                <div class="w-2">
+                    <div id="logo">
+                        <a href=""><img src="IMAGES/logo.png" alt="Logo"></a>
+                    </div>
+                </div>
+                <div class="w-2 align-right">
+                    <div id="search">
+                        <div id="search-in" class="flex">
+                            <input type="search" placeholder="Search">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+
+                    <div id="menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="">Company Profile</a></li>
+                            <li><a href="index2.html">Products</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">R & D</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="burger-btn">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="background_grey">
+        <div class="content">
+            <div id="slider-img-contactus">
+                <img src="IMAGES/backgroundgreen.jpg" alt="tomatoes">
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1 class="text-contact-subtitle">Contact us</h1>
+            <p class="message2">×××××</p>
+
+            <div id="sunflowerall-app">
+                <div class="get_cart" v-if="cartVisible">
+                    <div class="cart-item" v-for="item in product">
+                        <div class="w-4"><img v-bind:src="item.image" alt="item.title"></div>
+                        <div class="w-4">{{item.title}}</div>
+                        <div class="w-4">{{item.short_text}}</div>
+                        <div class="w-4" @click.prevent="removeFromCart(item.id)"><button class="btn-no-style">×</button></div>
+                    </div>
+                </div>
+
+                <form @submit.prevent="makeOrder" v-if="formVisible">
+                    <div class="flex-contactus-menu">
+                        <div class="contact-block">
+                            <div class="flex-element">
+                                <label for="Name">Name *</label>
+                                <input type="text" name="Name" v-model="contactFields.name" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Company_Name">Company Name *</label>
+                                <input type="text" name="Company_Name" v-model="contactFields.companyName" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Position">Position *</label>
+                                <input type="text" name="Position" v-model="contactFields.position" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="City">City *</label>
+                                <input type="text" name="City" v-model="contactFields.city" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Country">Country *</label>
+                                <input type="text" name="Country" v-model="contactFields.country" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Telephone">Telephone *</label>
+                                <input type="text" name="Telephone" v-model="contactFields.telephone" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Email">Email *</label>
+                                <input type="email" name="Email" v-model="contactFields.email" required>
+                            </div>
+
+                        </div>
+                        <div class="contact-block">
+                            <div class="flex-element">
+                                <label for="You_are_a">You are a *</label>
+                                <select name="You_are_a" v-model="contactFields.youAre" required>
+                                    <option value="seed_grower">seed grower</option>
+                                    <option value="seed_purchaser">seed purchaser</option>
+                                    <option value="seed_vendor">seed vendor</option>
+                                </select>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Other_specify">If other, please specify *</label>
+                                <input type="text" name="Other_specify" v-model="contactFields.otherSpecify" required>
+                            </div>
+                            <div class="flex-element">
+                                <label for="Interested">You are interested in *</label>
+                                <textarea name="Interested" cols="30" rows="16" v-model="contactFields.interested" required></textarea>
+                            </div>
+                            <div class="flex-element">
+                                <label for="capcha">Please type this code *</label>
+                                <div class="flex-button">
+                                    <img src="IMAGES/password.png" alt="PASSWORD">
+                                    <input type="text" name="capcha" v-model="contactFields.capcha" required>
+                                    <input type="submit" value="Send Message" class="submit-button order-accepted">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div v-if="!formVisible" class="contact-details">
+                    <p><strong>Name:</strong> {{contactFields.name}}</p>
+                    <p><strong>Company Name:</strong> {{contactFields.companyName}}</p>
+                    <p><strong>Position:</strong> {{contactFields.position}}</p>
+                    <p><strong>City:</strong> {{contactFields.city}}</p>
+                    <p><strong>Country:</strong> {{contactFields.country}}</p>
+                    <p><strong>Telephone:</strong> {{contactFields.telephone}}</p>
+                    <p><strong>Email:</strong> {{contactFields.email}}</p>
+                    <p><strong>You are a:</strong> {{contactFields.youAre}}</p>
+                    <p><strong>Other specify:</strong> {{contactFields.otherSpecify}}</p>
+                    <p><strong>Interested in:</strong> {{contactFields.interested}}</p>
+                    <p><strong>Capcha:</strong> {{contactFields.capcha}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="infofooter">
+        <div class="info-adress">
+            <span><b>Our Address</b></span>
+            <hr>
+            <p class="message3_tomatoall">AGRIDERA Seeds & Agriculture Ltd.</p>
+            <p class="message3_tomatoall">P.O Box 103,</p>
+            <p class="message3_tomatoall">Gedera 70750, Israel</p>
+            <p class="message3_tomatoall">Telephone: <a href="tel:+97289449222">+972 8 944 9222</a> </p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_section">
+            <div id="Сonnexions">
+                <ul>
+                    <li><a href="">PROFILE</a></li>
+                    <li><a href="">MANAGEMENT</a></li>
+                    <li><a href="">PRODUCTS</a></li>
+                    <li><a href="">R&D</a></li>
+                    <li><a href="">LINKS</a></li>
+                    <li><a href="">SITEMAP</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="social_media">
+                <a href=""><img src="IMAGES/Ico_in.png" alt="IN"></a>
+                <a href=""><img src="IMAGES/Ico_inst.png" alt="INSTAGRAM"></a>
+                <a href=""><img src="IMAGES/Ico_tube.png" alt="YOUTUBE"></a>
+                <a href=""><img src="IMAGES/Ico_tw.png" alt="TWITTER"></a>
+                <a href=""><img src="IMAGES/Ico_fb.png" alt="FACEBOOK"></a>
+            </div>
+        </div>
+        <p class="copyright">AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+    </div>
+</body>
+</html>
